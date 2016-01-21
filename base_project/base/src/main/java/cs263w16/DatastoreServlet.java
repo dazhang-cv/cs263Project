@@ -64,6 +64,7 @@ public class DatastoreServlet extends HttpServlet {
     	  } catch (Exception e){
     		  resp.getWriter().println("<p>key: " + reqStr + " not found</p>");
     	  }
+    	  System.out.println("OK");
     	  
       } else if (req.getParameter("keyname") != null && req.getParameter("value") != null){
     	  // put a new TaskData Entity using a key name and an value
