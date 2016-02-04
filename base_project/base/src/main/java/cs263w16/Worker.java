@@ -18,18 +18,31 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 public class Worker extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String key = request.getParameter("keyname");
-        String value = request.getParameter("value");
+        String usr = request.getParameter("usr");
+        String content = request.getParameter("content");
+        String type = request.getParameter("type");
+        String longitude = request.getParameter("longitude");
+        String latitude = request.getParameter("latitude");
+        String options = request.getParameter("options");
         // Do something with key. Put a new entity to datastore, also memcache
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
         MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
         
-        Entity reqEntity = new Entity("TaskData", key);
+        System.out.println("------------>" + type);
         
-        reqEntity.setProperty("value", value);
-  	  	reqEntity.setProperty("date", new Date());
+        Date date = new Date();
+        String keyname = usr + date;
+        Entity newEntity = new Entity("Message", keyname);
         
-  	  	datastore.put(reqEntity);
-  	  	syncCache.put(key, reqEntity);
+		newEntity.setProperty("usr", usr);
+		newEntity.setProperty("content", content);
+		newEntity.setProperty("type", Integer.parseInt(type));
+		newEntity.setProperty("date", date);
+		newEntity.setProperty("longitude", Double.parseDouble(longitude));
+		newEntity.setProperty("latitude", Double.parseDouble(latitude));
+		newEntity.setProperty("options", options);
+        
+  	  	dataStore.put(newEntity);
+  	  	syncCache.put(keyname, newEntity);
     }
 }

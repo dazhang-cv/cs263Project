@@ -65,7 +65,11 @@ public class MessageServlet extends HttpServlet{
 					double longitude = (double)result.getProperty("longitude");
 					double latitude = (double)result.getProperty("latitude");
 					String options = (String)result.getProperty("options");
+					resp.getWriter().println("<h3>Date: " + date + "</h3>");
 					resp.getWriter().println("<p>Content: " + content + "</p>");
+					resp.getWriter().println("<p>Type: " + type + "</p>");
+					resp.getWriter().println("<p>Location: " + longitude + " , " + latitude + "</p>");
+					resp.getWriter().println("<p>Options: " + options + "</p>");
 				}
 			}
 		}

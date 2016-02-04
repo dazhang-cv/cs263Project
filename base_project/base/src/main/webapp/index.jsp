@@ -38,9 +38,18 @@
 
 
 <form action="/enqueue" method="post">
-    <input type="text" name="keyname">
-    <input type="text" name="value">
+    <input type="text" name="usr">
+    <input type="text" name="content">
+    <input type="text" name="type">
+    <input type="text" name="longitude">
+    <input type="text" name="latitude">
+    <input type="text" name="options">
     <input type="submit">
+</form>
+
+<form action="/enqueue" method="post">
+	<input type="text" name="usr">
+	<input type="submit">
 </form>
 
 </body>
