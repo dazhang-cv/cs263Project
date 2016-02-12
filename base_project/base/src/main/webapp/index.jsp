@@ -7,10 +7,29 @@
 
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Crowdsourcing Online Inquiry</title>
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
+    <script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/source-sans-pro:n6:default.js" type="text/javascript"></script>
 </head>
 
 <body>
+
+<div id="wrapper">
+  <header id="top">
+    <h1>Ask What you want</h1>
+    <nav id="mainnav">
+      <ul>
+        <li><a href="index.html" class="thispage">Home</a></li>
+        <li><a href="project.html">SelectA</a></li>
+        <li><a href="publication.html">SelectB</a></li>
+        <li><a href="talks.html">SelectC</a></li>
+        <li><a href="PDF/DaZhang_CV.pdf">SelectD</a></li>
+        <li><a href="contact.html">SelectE</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="hero"><img src="/images/UCSB.jpg" alt=""/>  </div>
 
 <%
     String guestbookName = request.getParameter("guestbookName");
