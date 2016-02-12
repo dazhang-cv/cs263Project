@@ -57,14 +57,16 @@
 
 
 <form action="/enqueue" method="post">
-    <input type="text" name="usr">
-    <input type="text" name="content">
-    <input type="text" name="type">
-    <input type="text" name="longitude">
-    <input type="text" name="latitude">
-    <input type="text" name="options">
-    <input type="submit">
+	<p>
+	<input type="text" name="usr">  User Name<br>
+    <input type="text" name="content">	Message content<br>
+    <input type="text" name="type">  Message type<br> 
+    <input type="text" name="longitude">  Longitude<br>
+    <input type="text" name="latitude">  Latitude<br>
+    <input type="text" name="options">  Options<br>
+    <input type="submit"></p>
 </form>
+
 
 <form action="/enqueue" method="post">
 	<input type="text" name="usr">
