@@ -1,0 +1,42 @@
+#chatbox2 {
+	font-family:tahoma;
+	font-size:12px;
+	color:#79787A;
+	background-color: #161517;
+	border: 1px orange solid;
+	height: 225px;
+	width: 400px;
+	overflow: scroll;
+	float:left;
+	
+}
+#rooms2, #users2{
+	font-family:tahoma;
+	font-size:14;
+	color:orange;
+	background-color: #161517;
+	border:1px orange solid;
+	width:150px;
+	height:225px;
+	overflow:scroll;
+	margin-left:1px;
+}
+
+.well{
+	margin-bottom:2px;
+	margin-top:2px;
+}
+
+.well-lg {
+	padding:5px;
+}
+
+linkbutton {
+    background:none!important;
+     border:none; 
+     padding:0!important;
+    /*border is optional*/
+     font-size:16px;
+
+     cursor: pointer;
+}

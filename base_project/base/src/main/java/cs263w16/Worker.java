@@ -18,31 +18,28 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 public class Worker extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usr = request.getParameter("usr");
-        String content = request.getParameter("content");
-        String type = request.getParameter("type");
-        String longitude = request.getParameter("longitude");
-        String latitude = request.getParameter("latitude");
-        String options = request.getParameter("options");
-        // Do something with key. Put a new entity to datastore, also memcache
-        DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
-        MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+        /**
+         * Create a new query
+         */
+    	
+    	String city = request.getParameter("city");
+        String querytitle = request.getParameter("querytitle");
+        float latitude = Float.valueOf(request.getParameter("latitude"));
+        float longitude = Float.valueOf(request.getParameter("longitude"));
+        GeoPt location = new GeoPt(latitude,longitude);
+        String question = request.getParameter("question");
         
-        System.out.println("------------>" + type);
+        // Build entity
+        Key cityKey = KeyFactory.createKey("City",city);
+        Entity query = new Entity("Query", querytitle, cityKey);
+        query.setProperty("title", querytitle);
+        query.setProperty("location", location);
+        query.setProperty("city", city);
+        query.setProperty("question", question);
+        // Put to memcache
         
-        Date date = new Date();
-        String keyname = usr + date;
-        Entity newEntity = new Entity("Message", keyname);
-        
-		newEntity.setProperty("usr", usr);
-		newEntity.setProperty("content", content);
-		newEntity.setProperty("type", Integer.parseInt(type));
-		newEntity.setProperty("date", date);
-		newEntity.setProperty("longitude", Double.parseDouble(longitude));
-		newEntity.setProperty("latitude", Double.parseDouble(latitude));
-		newEntity.setProperty("options", options);
-        
-  	  	dataStore.put(newEntity);
-  	  	syncCache.put(keyname, newEntity);
+        // Save to datastore
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        datastore.put(query);
     }
 }
