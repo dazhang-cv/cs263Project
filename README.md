@@ -5,6 +5,6 @@ Google App Engine Java location-based online query
 
 Requires [Apache Maven](http://maven.apache.org) 3.3 or greater, and JDK 7+ in order to run.
 
-To build, run
+To build, run a
 
     mvn package
