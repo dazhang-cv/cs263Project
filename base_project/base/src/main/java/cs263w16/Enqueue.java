@@ -14,6 +14,7 @@ public class Enqueue extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
+        String enqueue = "enqueue";
         String querytitle = request.getParameter("querytitle");
         String city = "goleta";
         String longitude = "45.00";
